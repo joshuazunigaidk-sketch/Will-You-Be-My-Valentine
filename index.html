@@ -7,7 +7,7 @@
     <style>
         body { display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #fce4ec; font-family: Arial, sans-serif; text-align: center; margin: 0; overflow: hidden; }
         .container { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); width: 85%; max-width: 400px; }
-        img { width: 230px; height: 230px; border-radius: 15px; margin-bottom: 20px; object-fit: cover; }
+        img { width: 230px; height: 230px; border-radius: 15px; margin-bottom: 20px; object-fit: cover; background: #f9f9f9; }
         .buttons { display: flex; justify-content: center; gap: 15px; margin-top: 20px; flex-wrap: wrap; align-items: center; }
         button { padding: 12px 24px; font-size: 18px; border: none; border-radius: 12px; cursor: pointer; transition: 0.2s; font-weight: bold; }
         #yesBtn { background-color: #b39ddb; color: white; }
@@ -34,9 +34,9 @@
 
     const messages = ["No", "Are you sure??", "Really sure???", "Sige na pls", "Ayaw mo pa rin ba??", "Ah ayaw mo talaga?"];
     const images = [
-        "https://i.giphy.com/media/vP5gX7MtkT9OqKDC2k/giphy.gif",
-        "https://i.giphy.com/media/3o72F8t9TDi2xVnxOE/giphy.gif",
-        "https://i.giphy.com/media/ISOckXUfHLYMk/giphy.gif"
+        "https://i.giphy.com/media/vP5gX7MtkT9OqKDC2k/giphy.gif", // Sad
+        "https://i.giphy.com/media/3o72F8t9TDi2xVnxOE/giphy.gif", // Crying
+        "https://i.giphy.com/media/ISOckXUfHLYMk/giphy.gif"      // Banana Cat
     ];
 
     noBtn.addEventListener('click', () => {
@@ -45,20 +45,23 @@
             questionText.innerText = messages[noCount];
         }
         
+        // Changes cats as NO is clicked
         if (noCount === 1) catImage.src = images[0];
         if (noCount === 3) catImage.src = images[1];
         if (noCount >= 5) catImage.src = images[2];
 
-        // YES button growth logic
+        // YES button grows
         const currentSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
         yesBtn.style.fontSize = (currentSize * 1.5) + "px";
         yesBtn.style.padding = (currentSize * 0.6) + "px " + (currentSize * 1.3) + "px";
     });
 
     yesBtn.addEventListener('click', () => {
-        // Your custom name and green peony request
+        // Your custom message
         questionText.innerText = "Iloveyousomuch Aonoyuki Angel P Zuñiga ko ❤️";
+        // This is the link for the Green Peonies
         catImage.src = "https://images.unsplash.com/photo-1591880911020-d34960ca306c?q=80&w=500&auto=format&fit=crop"; 
+        // Hide the buttons when YES is clicked
         document.querySelector('.buttons').style.display = "none";
     });
 </script>
